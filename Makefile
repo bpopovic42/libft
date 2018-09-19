@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/09/10 18:19:56 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/09/16 00:24:13 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SRC_STR		=	ft_islower.c ft_isupper.c ft_isalpha.c ft_isdigit.c \
 			ft_itoa.c ft_issign.c ft_char_count.c ft_strappend.c \
 			ft_strnappend.c ft_strcinsert.c ft_wctomb.c ft_wcstombs.c \
 			ft_wcslen.c ft_strrev.c ft_wcsnlen.c ft_strchrn.c ft_ccat.c \
-			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c
+			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c ft_atol.c
 
 # **************************************************************************** #
 # Hash :
@@ -121,6 +121,7 @@ $(NAME)		:	$(OBJ)
 			@ar rcs $(NAME) $(OBJ)
 			@$(CLR)
 			@echo $(UP) $(CUT) $(UP)
+			@if [ "$(DEBUG)" == "-g" ]; then echo $(UP) $(CUT) $(UP); fi;
 			@/bin/rm -f .cmp
 			@echo $(G)[$(B)LIBFT $(G)COMPILED]$(X)
 
@@ -180,4 +181,6 @@ MKODIR		=	if [ ! -d $(ODIR) ]; then \
 
 CMP			=	if [ ! -e .cmp ]; then \
 			echo $(Y)Compiling $(X)the $(B)Libft $(X)files...$(Y); \
+			if [ "$(DEBUG)" == "-g" ]; then \
+			echo \($(R)Debugging $(G)activated$(Y)\); fi; \
 			touch .cmp; fi
