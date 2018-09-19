@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 17:05:27 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/06 16:27:18 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/11 18:42:01 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 int		ft_printf_type_n(t_ptf *ptf, int *n)
 {
 	ft_printf_dump_fmt(ptf);
-	*n = (int)(ptf->buff.read + ptf->buff.pos + ptf->fmt.i);
+	if (n && *n)
+		*n = (int)(ptf->buff.read + ptf->buff.pos + ptf->fmt.i);
 	return (1);
 }
 

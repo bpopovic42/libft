@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 19:10:37 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/09 22:09:12 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/11 22:31:46 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,23 @@ static void		round_dbl(char *buff)
 {
 	size_t i;
 
-	i = ft_strlen(buff + 1);
-	while (i)
+	if (buff && *buff)
 	{
-		if (buff[i] == '9')
-			buff[i] = '0';
-		else if (buff[i] != '.')
+		i = ft_strlen(buff + 1);
+		while (i)
 		{
-			if (i == 0)
-				buff[i] = '1';
-			else
-				buff[i]++;
-			break ;
+			if (buff[i] == '9')
+				buff[i] = '0';
+			else if (buff[i] != '.')
+			{
+				if (i == 0)
+					buff[i] = '1';
+				else
+					buff[i]++;
+				break ;
+			}
+			i--;
 		}
-		i--;
 	}
 }
 
@@ -41,25 +44,29 @@ static void		round_dbl(char *buff)
 ** Converts double value to ascii base using *bstr charset
 */
 
+#include <stdio.h>
+
 static int		dtoa_base(double *val, char *buff, int i, char *bstr)
 {
-	double	tmp;
+	t_dbl	tmp;
 	int		ret;
 	int		base;
 
-	tmp = *val;
 	ret = 0;
 	base = (int)ft_strlen(bstr);
+	while (i < 1)
+	{
+		*val /= base;
+		i++;
+	}
+	tmp.val = *val;
 	while (i)
 	{
-		ft_ccat(buff, bstr[(int64_t)(tmp)]);
-		tmp -= (int64_t)tmp;
-		tmp = tmp * base;
+		ft_ccat(buff, bstr[(int)(tmp.val) > 0 ? (int)(tmp.val) % base : 0]);
+		tmp.val -= (int64_t)tmp.val;
+		tmp.val *= base;
 		*val *= base;
-		if (i < 0)
-			i++;
-		else
-			i--;
+		i += i < 0 ? 1 : -1;
 		ret++;
 	}
 	*val /= base;
@@ -74,30 +81,31 @@ static int		dtoa_base(double *val, char *buff, int i, char *bstr)
 ** Returns the number of operations used to ajust the number
 */
 
-static int		adjust(double *val, char spec)
+static double		adjust(double val, int *i, char spec)
 {
-	int		i;
 	int		base;
 
-	i = 0;
+	*i = 0;
 	base = ft_toupper(spec) == 'A' ? 2 : 10;
-	if (*val > (base - 1) || *val < 1)
+	if (val > (base - 1) || val < 1)
 	{
-		while ((int)*val > (base - 1) || (int)*val < 1)
+		while ((int)val > (base - 1) || (int)val < 1)
 		{
-			if (*val > (base - 1))
+			if (val > (base - 1))
 			{
-				*val /= base;
-				i++;
+				val /= base;
+				(*i)++;
 			}
 			else
 			{
-				*val *= base;
-				i--;
+				val *= base;
+				(*i)--;
 			}
+			if (*i < -200)
+				return (0);
 		}
 	}
-	return (i);
+	return (val);
 }
 
 /*
@@ -121,18 +129,32 @@ static int		getint(t_dbl *dbl, int *prec, char *buff, char spec)
 	if (spec == 'a' || spec == 'A')
 		bstr = spec == 'A' ? BASE_HEXA_UP : BASE_HEXA;
 	expn = 1;
-	if (!(ft_toupper(spec) == 'F' && (int)dbl->val == 0))
-		expn = adjust(&(dbl->val), spec) + (ft_strchr("fF", spec) ? 1 : 0);
+	adjust(dbl->val, &expn, spec);
 	if ((spec == 'G' || spec == 'g') || (spec == 'a' || spec == 'A'))
 	{
 		if (expn > -4 && expn < *prec && expn != 0 && ft_toupper(spec) != 'A')
-			intpart_size = dtoa_base(&dbl->val, buff, expn + 1, bstr);
+		{
+			intpart_size = ft_printf_lltoa_base(buff, BASE_DENARY, (int64_t)dbl->val);
+			dbl->val -= (int64_t)dbl->val;
+		}
 		else
-			intpart_size = dtoa_base(&dbl->val, buff, 1, bstr);
+		{
+			dbl->val = adjust(dbl->val, &expn, spec);
+			intpart_size = dtoa_base(&(dbl->val), buff, 1, bstr);
+		}
 		*prec -= (spec == 'G' || spec == 'g' ? intpart_size : 0);
 	}
-	else
-		dtoa_base(&dbl->val, buff, ft_strchr("fF", spec) ? expn : 1, bstr);
+	else if ((expn > 12 && ft_toupper(spec) == 'F'))
+	{
+		dbl->val = adjust(dbl->val, &expn, spec);
+		dtoa_base(&(dbl->val), buff, ft_strchr("fF", spec) ? expn : 1, bstr);
+	}
+	else if (ft_toupper(spec) == 'E')
+	{
+		intpart_size = 1;
+		ft_printf_lltoa_base(buff, BASE_DENARY, (int64_t)dbl->val);
+		buff[2] = '\0';
+	}
 	ft_ccat(buff, *prec ? '.' : '\0');
 	return (expn);
 }
