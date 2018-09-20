@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/09/20 14:37:19 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/09/20 15:14:26 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC_IO		=	ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_base.c \
 
 SRC_LST		=	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 			ft_lstiter.c ft_lstmap.c ft_lstpush.c ft_dlstnew.c ft_dlstdel.c \
-			ft_dlstdelone.c
+			ft_dlstdelone.c ft_dlstpop.c ft_dlstpush.c
 
 # **************************************************************************** #
 # Memory :
