@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_type_double.c                            :+:      :+:    :+:   */
+/*   ft_printf_type_long_double.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 18:44:17 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/27 15:46:14 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/27 15:53:49 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int			get_suffix(char *buff, char *suffix, char spec, int expn)
 ** Returns the exponent computed from dtoa
 */
 
-static int			get_conv(t_ptf *ptf, double param, char *tmp, int expn)
+static int			get_conv(t_ptf *ptf, t_ldbl param, char *tmp, int expn)
 {
 	if (ptf->precision > MAX_DBL_PRECISION)
 		expn = ft_printf_dtoa(param, MAX_DBL_PRECISION, tmp, ptf->spec);
@@ -92,7 +92,7 @@ static int			get_conv(t_ptf *ptf, double param, char *tmp, int expn)
 ** Trim trailing zeros depending on conversion type
 */
 
-static void			get_arg(t_ptf *ptf, double param, char *tmp, char *suffix)
+static void			get_arg(t_ptf *ptf, t_ldbl param, char *tmp, char *suffix)
 {
 	int		expn;
 	int		i;
@@ -122,10 +122,10 @@ static void			get_arg(t_ptf *ptf, double param, char *tmp, char *suffix)
 }
 
 /*
-** Convert a double to its ascii representation in tmp
+** Convert a long double to its ascii representation in tmp
 */
 
-int					ft_printf_type_dbl(t_ptf *ptf, double param)
+int					ft_printf_type_ldbl(t_ptf *ptf, t_ldbl param)
 {
 	char	tmp[MAX_DBL_LEN + MAX_DBL_PRECISION + 1];
 	size_t	size;

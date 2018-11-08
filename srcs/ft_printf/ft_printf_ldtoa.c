@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_dtoa.c                                   :+:      :+:    :+:   */
+/*   ft_printf_ldtoa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 19:10:37 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/27 15:56:12 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/27 15:56:34 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static void		round_dbl(char *buff)
 ** Converts double value to ascii base using *bstr charset
 */
 
-static int		dtoa_base(double *val, char *buff, int i, char *bstr)
+static int		dtoa_base(t_ldbl *val, char *buff, int i, char *bstr)
 {
-	t_udbl	tmp;
+	t_uldbl	tmp;
 	int		ret;
 	int		base;
 
@@ -77,7 +77,7 @@ static int		dtoa_base(double *val, char *buff, int i, char *bstr)
 ** Returns the number of operations used to ajust the number
 */
 
-static int		adjust(double *val, char spe)
+static int		adjust(t_ldbl *val, char spe)
 {
 	int		i;
 	int		base;
@@ -113,7 +113,7 @@ static int		adjust(double *val, char spe)
 ** Returns computed exponent
 */
 
-static int		getint(t_udbl *dbl, int *prec, char *buff, char spe)
+static int		getint(t_uldbl *dbl, int *prec, char *buff, char spe)
 {
 	int		expn;
 	int		intpart_size;
@@ -143,16 +143,16 @@ static int		getint(t_udbl *dbl, int *prec, char *buff, char spe)
 }
 
 /*
-** Convert a double to ascii in either denary or hexa base up to prec digits
+** Convert a long double to ascii in either denary or hexa base up to prec digit
 ** Base is instanciated depending on given spec
 ** Inf and NaN numbers are handled
 ** Conversion is written starting at (buff + 1) in case rounding would overflow
 ** Returns converted double's exponent or 0 if double is either Nan or inf
 */
 
-int				ft_printf_dtoa(double val, int prec, char *buff, char spe)
+int				ft_printf_ldtoa(t_ldbl val, int prec, char *buff, char spe)
 {
-	t_udbl		dbl;
+	t_uldbl		dbl;
 	int			expn;
 	int			base;
 	char		*bstr;

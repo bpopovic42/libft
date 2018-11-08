@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 19:06:52 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/06 19:46:47 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/27 16:11:03 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,29 @@
 static int			treat_arg_by_type(t_ptf *ptf, va_list ap)
 {
 	char	spec;
-	int		ret;
 
 	spec = ptf->spec;
-	ret = -1;
 	if (!ft_printf_is_spec(spec) || spec == '%')
 	{
 		ptf->spec = 'c';
 		if (spec == '%')
-			ret = ft_printf_type_mod(ptf);
+			return (ft_printf_type_mod(ptf));
 		else
-			ret = ft_printf_type_char(ptf, (wchar_t)spec);
+			return (ft_printf_type_char(ptf, (wchar_t)spec));
 	}
 	else if (ft_strchr("bBdDioOuUxXp", spec))
-		ret = ft_printf_type_int(ptf, va_arg(ap, int64_t));
+		return (ft_printf_type_int(ptf, va_arg(ap, int64_t)));
 	else if (spec == 'r' || spec == 's' || spec == 'S')
-		ret = ft_printf_type_str(ptf, (wchar_t*)va_arg(ap, int64_t));
+		return (ft_printf_type_str(ptf, (wchar_t*)va_arg(ap, int64_t)));
 	else if (spec == 'c' || spec == 'C')
-		ret = ft_printf_type_char(ptf, (wchar_t)va_arg(ap, int64_t));
+		return (ft_printf_type_char(ptf, (wchar_t)va_arg(ap, int64_t)));
+	else if (ft_strchr("aAeEfFgG", spec) && ft_strchr(ptf->flags, 'L'))
+		return (ft_printf_type_ldbl(ptf, va_arg(ap, long double)));
 	else if (ft_strchr("aAeEfFgG", spec))
-		ret = ft_printf_type_dbl(ptf, va_arg(ap, double));
+		return (ft_printf_type_dbl(ptf, va_arg(ap, double)));
 	else if (spec == 'n')
-		ret = ft_printf_type_n(ptf, va_arg(ap, int*));
-	return (ret);
+		return (ft_printf_type_n(ptf, va_arg(ap, int*)));
+	return (-1);
 }
 
 /*

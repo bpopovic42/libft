@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 17:11:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/06 18:50:58 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/27 15:40:13 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			ft_printf_is_flag(int c)
 {
 	return (ft_isdigit(c) || c == '-' || c == '+' || c == '#' || c == '.'
 		|| c == 'h' || c == 'j' || c == 'l' || c == 'z' || c == ' '
-			|| c == '*');
+			|| c == 'L' || c == '*');
 }
 
 int			ft_printf_is_spec(int c)
