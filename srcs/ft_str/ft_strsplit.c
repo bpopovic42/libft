@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 14:16:50 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/04/25 16:32:17 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/21 23:48:24 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char			**ft_strsplit(char const *s, char c)
 	char	**res;
 
 	size = count_words(s, c);
-	if (!(res = (char**)malloc(sizeof(*res) * size + 1)))
+	if (!(res = (char**)malloc(sizeof(*res) * (size + 1))))
 		return (NULL);
 	res[size] = NULL;
 	size = 0;
