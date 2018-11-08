@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 23:44:37 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/05/25 00:03:56 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/21 23:06:33 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ t_hash		*ft_hashnew(int key, void const *data, size_t data_size)
 	}
 	else
 	{
-		if (!(new->data = ft_memalloc(data_size)))
+		if (!(new->data = ft_memdup(data, data_size)))
 			return (NULL);
-		new->data = ft_memcpy(new->data, data, data_size);
 		new->data_size = data_size;
 	}
 	return (new);
