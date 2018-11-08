@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 15:28:14 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/06 19:17:56 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/27 15:55:44 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int					ft_printf_type_int(t_ptf *ptf, int64_t param);
 int					ft_printf_type_str(t_ptf *ptf, wchar_t *param);
 int					ft_printf_type_char(t_ptf *ptf, wchar_t param);
 int					ft_printf_type_dbl(t_ptf *ptf, double param);
+int					ft_printf_type_ldbl(t_ptf *ptf, t_ldbl param);
 int					ft_printf_type_n(t_ptf *ptf, int *n);
 int					ft_printf_type_mod(t_ptf *ptf);
 
@@ -111,7 +112,8 @@ int					ft_printf_is_spec(int c);
 size_t				ft_printf_atoi(const char *str, int *res);
 int					ft_printf_lltoa_base(char *buff, char *chrst, int64_t nb);
 int					ft_printf_ulltoa_base(char *buff, char *chrst, uint64_t nb);
-int					ft_printf_dtoa(double val, int prec, char *buff, char spec);
+int					ft_printf_dtoa(double val, int prec, char *buff, char spe);
+int					ft_printf_ldtoa(t_ldbl val, int prec, char *buff, char spe);
 
 /*
 ** MISC
