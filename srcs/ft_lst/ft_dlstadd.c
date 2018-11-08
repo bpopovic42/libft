@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstdel.c                                       :+:      :+:    :+:   */
+/*   ft_dlstadd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 14:30:45 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/21 21:03:29 by bopopovi         ###   ########.fr       */
+/*   Created: 2018/09/20 16:01:50 by bopopovi          #+#    #+#             */
+/*   Updated: 2018/09/21 14:00:25 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
-void			ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t))
+void	ft_dlstadd(t_dlist **alst, t_dlist *elem)
 {
-	t_dlist		*head;
-	t_dlist		*ptr;
+	t_dlist	*tmp;
+	t_dlist	*ptr;
 
-	head = *alst;
-	while (head)
+	if (alst)
 	{
-		ptr = head->next;
-		ft_dlstdelone(&head, del);
-		head = ptr;
+		if (*alst && elem)
+		{
+			ptr = *alst;
+			while (ptr->next && ptr->next != *alst)
+				ptr = ptr->next;
+			tmp = ptr->next;
+			ptr->next = elem;
+			elem->prev = ptr;
+			elem->next = tmp;
+			if (tmp)
+				tmp->prev = tmp;
+		}
+		else
+			*alst = elem;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 18:59:31 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/04/20 19:14:12 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/09/21 19:53:47 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(new->content = ft_memalloc(content_size)))
+		if (!(new->content = ft_memdup(content, content_size)))
 			return (NULL);
-		new->content = ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 	}
 	return (new);
