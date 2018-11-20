@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/10/22 18:29:15 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/11/20 04:31:47 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ BINDIR		=	ft_bin
 
 PTFDIR		=	ft_printf
 
+VECDIR		=	ft_vector
+
 ############################## SRCS ############################################
 
 # **************************************************************************** #
@@ -43,7 +45,7 @@ IO_FILES	=	$(addprefix $(IODIR)/, \
 			ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_base.c \
 			ft_putstr_npr.c ft_putchar_fd.c ft_putstr_fd.c \
 			ft_putendl.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_print_memory.c ft_print_bits.c get_next_line.c)
+			ft_print_memory.c ft_print_bits.c get_next_line.c ft_perror.c)
 
 # **************************************************************************** #
 # Lists :
@@ -59,7 +61,7 @@ LST_FILES	=	$(addprefix $(LSTDIR)/, \
 MEM_FILES	=	$(addprefix $(MEMDIR)/, \
 			ft_bzero.c ft_memset.c ft_memcpy.c ft_memccpy.c \
 			ft_memmove.c ft_memchr.c ft_memcmp.c ft_memalloc.c \
-			ft_memdel.c ft_memdup.c)
+			ft_memdel.c ft_memdup.c ft_realloc.c)
 
 # **************************************************************************** #
 # Strings :
@@ -103,8 +105,15 @@ PTF_FILES	=	$(addprefix $(PTFDIR)/, \
 			ft_printf_type_dbl.c ft_printf_type_ldbl.c ft_printf_type_others.c \
 			ft_printf_dtoa.c ft_printf_ldtoa.c ft_printf_color.c)
 
+# **************************************************************************** #
+# Vector :
+
+VEC_FILES	=	$(addprefix $(VECDIR)/, \
+			ft_vector_init.c ft_vector_resize.c ft_vector_free.c \
+			ft_vector_append.c ft_vector_get.c)
+
 SRCS		=	$(IO_FILES) $(LST_FILES) $(MEM_FILES) $(STR_FILES) \
-				$(HASH_FILES) $(BIN_FILES) $(PTF_FILES)
+				$(HASH_FILES) $(BIN_FILES) $(PTF_FILES) $(VEC_FILES)
 
 ############################## OBJS ############################################
 
@@ -167,7 +176,8 @@ MKODIR		=	if [ ! -d $(ODIR) ]; then \
 			/bin/mkdir -p objs/ft_str; \
 			/bin/mkdir -p objs/ft_hash; \
 			/bin/mkdir -p objs/ft_bin; \
-			/bin/mkdir -p objs/ft_printf; fi
+			/bin/mkdir -p objs/ft_printf; \
+			/bin/mkdir -p objs/ft_vector; fi
 
 CMP			=	if [ ! -e .cmp ]; then \
 			echo $(BY)Compiling $(B)Libft $(X)files...$(BY); \

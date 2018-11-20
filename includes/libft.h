@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/10/19 21:22:26 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/11/20 13:44:17 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 # include <string.h>
 # include <stdlib.h>
 
+# define STDERR 2
 # define BASE_HEXA "0123456789abcdef"
 # define BASE_HEXA_UP "0123456789ABCDEF"
 # define BASE_OCTAL "01234567"
 # define BASE_BINARY "01"
 # define BASE_DENARY "0123456789"
+# define VECTOR_INITIAL_SIZE 1
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
@@ -70,6 +72,14 @@ typedef union		u_uldbl
 	}				bits;
 }					t_uldbl;
 
+typedef struct		s_vect
+{
+	size_t			size;
+	size_t			capacity;
+	void			**data;
+	size_t			data_size;
+}					t_vect;
+
 /*
 ** IO FUNCTIONS
 */
@@ -86,6 +96,7 @@ void				ft_putstr_npr(char *str);
 int					ft_putnbr_base(int n, char *base);
 void				*ft_print_memory(void *addr, unsigned int size);
 void				ft_print_bits(uint64_t val, size_t type);
+void				ft_perror(const char *error);
 
 /*
 ** LIST FUNCTIONS
@@ -120,6 +131,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				*ft_memdup(const void *src, size_t n);
+void				*ft_realloc(void *ptr, size_t size, size_t new_size);
 
 /*
 ** STRING FUNCTIONS
@@ -200,5 +212,15 @@ void				*ft_hashget(t_hash **list, int key);
 
 int					ft_is_bit_set(int64_t set, int bit);
 int64_t				ft_toggle_bit(int64_t set, int bit);
+
+/*
+** VECTOR FUNCTIONS
+*/
+
+void				ft_vector_free(t_vect *v, void (*del)(void *));
+t_vect				*ft_vector_init(size_t data_size, size_t capacity);
+void				ft_vector_append(t_vect *v, void *value);
+void				*ft_vector_get(t_vect *v, size_t index);
+void				ft_vector_resize(t_vect *v);
 
 #endif
