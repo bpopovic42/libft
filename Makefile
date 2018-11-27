@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/11/20 04:31:47 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/11/27 19:26:21 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ STR_FILES	=	$(addprefix $(STRDIR)/, \
 			ft_itoa.c ft_issign.c ft_char_count.c ft_strappend.c \
 			ft_strnappend.c ft_strcinsert.c ft_wctomb.c ft_wcstombs.c \
 			ft_wcslen.c ft_strrev.c ft_wcsnlen.c ft_strchrn.c ft_ccat.c \
-			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c ft_atol.c)
+			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c ft_atol.c \
+			ft_count_words.c)
 
 # **************************************************************************** #
 # Hash :

@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/11/20 13:44:17 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/11/27 19:36:03 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define BASE_BINARY "01"
 # define BASE_DENARY "0123456789"
 # define VECTOR_INITIAL_SIZE 1
+# define WSPCS "\040\t"
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
@@ -194,6 +195,7 @@ size_t				ft_wcsnlen(wchar_t *wcs, size_t n);
 int					ft_ccat(char *dst, char app);
 char				*ft_strtoupper(char *str);
 long				ft_atol(const char *str);
+size_t				ft_count_words(const char *s, const char *spaces);
 
 /*
 ** HASH FUNCTIONS
