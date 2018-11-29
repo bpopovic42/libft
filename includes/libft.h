@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/11/28 16:41:19 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/11/29 19:41:59 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				*ft_memdup(const void *src, size_t n);
 void				*ft_realloc(void *ptr, size_t size, size_t new_size);
+void				ft_delarray(void *array);
 
 /*
 ** STRING FUNCTIONS
