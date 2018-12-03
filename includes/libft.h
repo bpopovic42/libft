@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/11/29 19:41:59 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/03 20:24:39 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,27 @@ typedef struct		s_dlist
 	struct s_dlist	*prev;
 }					t_dlist;
 
-typedef struct		s_hash
+typedef struct		s_dict
 {
 	int				key;
 	size_t			data_size;
 	void			*data;
+	struct s_dict	*next;
+}					t_dict;
+
+typedef struct		s_hash
+{
+	char			*key;
+	size_t			data_size;
+	void			*data;
 	struct s_hash	*next;
 }					t_hash;
+
+typedef struct		s_htable
+{
+	size_t			size;
+	struct s_hash	**table;
+}					t_htable;
 
 typedef union		u_udbl
 {
@@ -199,15 +213,28 @@ long				ft_atol(const char *str);
 size_t				ft_count_words(const char *s, const char *spaces);
 
 /*
+** DICTIONARY FUNCTIONS
+*/
+
+int					ft_dictadd(t_dict **list, int key, void *data, size_t size);
+void				ft_dictdel(t_dict **elem);
+void				*ft_dictget(t_dict **list, int key);
+t_dict				*ft_dictnew(int key, void const *data, size_t data_size);
+t_dict				*ft_dictpop(t_dict **list, int key);
+void				ft_dictpush(t_dict **list, t_dict *elem);
+
+/*
 ** HASH FUNCTIONS
 */
 
-t_hash				*ft_hashnew(int key, void const *data, size_t data_size);
-t_hash				*ft_hashpop(t_hash **list, int key);
-void				ft_hashpush(t_hash **list, t_hash *elem);
-void				ft_hashdel(t_hash **elem);
-int					ft_hashadd(t_hash **list, int key, void *data, size_t size);
-void				*ft_hashget(t_hash **list, int key);
+t_htable			*ft_hash_newtable(size_t table_size);
+t_hash				*ft_hashnew(char *key, void const *data, size_t data_size);
+t_hash				*ft_hashpop(t_htable *table, char *key);
+void				ft_hashpush(t_htable *table, t_hash *elem);
+void				ft_hashdel(t_htable *table, char *key);
+int					ft_hashadd(t_htable *table, t_hash *entry);
+t_hash				*ft_hashget(t_htable *table, char *key);
+int					ft_hash(t_htable *table, char *key);
 
 /*
 ** BINARY FUNCTIONS

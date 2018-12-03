@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/11/29 19:11:31 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/12/03 20:23:37 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ LSTDIR		=	ft_lst
 MEMDIR		=	ft_mem
 
 STRDIR		=	ft_str
+
+DICTDIR		=	ft_dict
 
 HASHDIR		=	ft_hash
 
@@ -84,11 +86,18 @@ STR_FILES	=	$(addprefix $(STRDIR)/, \
 			ft_count_words.c)
 
 # **************************************************************************** #
+# Dictionary :
+
+DICT_FILES	=	$(addprefix $(DICTDIR)/, \
+			ft_dictnew.c ft_dictpop.c ft_dictpush.c ft_dictdel.c \
+			ft_dictget.c ft_dictadd.c)
+
+# **************************************************************************** #
 # Hash :
 
 HASH_FILES	=	$(addprefix $(HASHDIR)/, \
 			ft_hashnew.c ft_hashpop.c ft_hashpush.c ft_hashdel.c \
-			ft_hashget.c ft_hashadd.c)
+			ft_hashget.c ft_hashadd.c ft_hash.c ft_hash_newtable.c)
 
 # **************************************************************************** #
 # Binary :
@@ -114,7 +123,8 @@ VEC_FILES	=	$(addprefix $(VECDIR)/, \
 			ft_vector_append.c ft_vector_get.c)
 
 SRCS		=	$(IO_FILES) $(LST_FILES) $(MEM_FILES) $(STR_FILES) \
-				$(HASH_FILES) $(BIN_FILES) $(PTF_FILES) $(VEC_FILES)
+				$(DICT_FILES) $(HASH_FILES) $(BIN_FILES) $(PTF_FILES) \
+				$(VEC_FILES)
 
 ############################## OBJS ############################################
 
@@ -175,6 +185,7 @@ MKODIR		=	if [ ! -d $(ODIR) ]; then \
 			/bin/mkdir -p objs/ft_lst; \
 			/bin/mkdir -p objs/ft_mem; \
 			/bin/mkdir -p objs/ft_str; \
+			/bin/mkdir -p objs/ft_dict; \
 			/bin/mkdir -p objs/ft_hash; \
 			/bin/mkdir -p objs/ft_bin; \
 			/bin/mkdir -p objs/ft_printf; \
