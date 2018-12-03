@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hashadd.c                                       :+:      :+:    :+:   */
+/*   ft_hash.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/01 17:59:17 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/03 20:19:45 by bopopovi         ###   ########.fr       */
+/*   Created: 2018/12/03 19:37:11 by bopopovi          #+#    #+#             */
+/*   Updated: 2018/12/03 20:21:13 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-/*
-**	TODO: Check if key already exists in list (ERROR case)
-*/
-
-int		ft_hashadd(t_htable *table, t_hash *entry)
+int		ft_hash(t_htable *table, char *key)
 {
-	int hash;
+	unsigned long int	hash;
+	int					i;
 
-	hash = ft_hash(table, entry->key);
-	if (table && entry)
+	i = 0;
+	hash = 0;
+	while (hash < ULONG_MAX && i < (int)ft_strlen(key))
 	{
-		ft_hashpush(table, entry);
-		return (1);
+		hash <<= 8;
+		hash += key[i];
+		i++;
 	}
-	return (-1);
+	return ((int)(hash % table->size));
 }

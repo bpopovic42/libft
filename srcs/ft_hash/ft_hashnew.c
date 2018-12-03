@@ -6,14 +6,14 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 23:44:37 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/21 23:06:33 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/03 19:51:35 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_hash		*ft_hashnew(int key, void const *data, size_t data_size)
+t_hash		*ft_hashnew(char *key, void const *data, size_t data_size)
 {
 	t_hash *new;
 
