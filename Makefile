@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/12/03 20:23:37 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/12/13 17:49:02 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,8 @@ DICT_FILES	=	$(addprefix $(DICTDIR)/, \
 
 HASH_FILES	=	$(addprefix $(HASHDIR)/, \
 			ft_hashnew.c ft_hashpop.c ft_hashpush.c ft_hashdel.c \
-			ft_hashget.c ft_hashadd.c ft_hash.c ft_hash_newtable.c)
+			ft_hashget.c ft_hashadd.c ft_hash.c ft_hash_newtable.c \
+			ft_hash_freetable.c)
 
 # **************************************************************************** #
 # Binary :
