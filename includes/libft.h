@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/13 19:45:48 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/23 01:44:28 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,7 +248,7 @@ int64_t				ft_toggle_bit(int64_t set, int bit);
 ** VECTOR FUNCTIONS
 */
 
-void				ft_vector_free(t_vect *v, void (*del)(void *));
+void				ft_vector_free(t_vect *v, void (*del)(void **));
 t_vect				*ft_vector_init(size_t data_size, size_t capacity);
 void				ft_vector_append(t_vect *v, void *value);
 void				*ft_vector_get(t_vect *v, size_t index);
