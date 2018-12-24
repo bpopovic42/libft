@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/12/13 17:49:02 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2018/12/24 01:38:11 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ STR_FILES	=	$(addprefix $(STRDIR)/, \
 			ft_strnappend.c ft_strcinsert.c ft_wctomb.c ft_wcstombs.c \
 			ft_wcslen.c ft_strrev.c ft_wcsnlen.c ft_strchrn.c ft_ccat.c \
 			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c ft_atol.c \
-			ft_count_words.c)
+			ft_count_words.c ft_is_valid_int.c)
 
 # **************************************************************************** #
 # Dictionary :
@@ -98,7 +98,7 @@ DICT_FILES	=	$(addprefix $(DICTDIR)/, \
 HASH_FILES	=	$(addprefix $(HASHDIR)/, \
 			ft_hashnew.c ft_hashpop.c ft_hashpush.c ft_hashdel.c \
 			ft_hashget.c ft_hashadd.c ft_hash.c ft_hash_newtable.c \
-			ft_hash_freetable.c)
+			ft_hash_freetable.c ft_hashget_data.c ft_hashpush_data.c)
 
 # **************************************************************************** #
 # Binary :

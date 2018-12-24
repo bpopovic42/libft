@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/23 01:44:28 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/24 01:42:02 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,7 @@ int					ft_ccat(char *dst, char app);
 char				*ft_strtoupper(char *str);
 long				ft_atol(const char *str);
 size_t				ft_count_words(const char *s, const char *spaces);
+int					ft_is_valid_int(const char *nbr);
 
 /*
 ** DICTIONARY FUNCTIONS
@@ -235,7 +236,9 @@ void				ft_hashpush(t_htable *table, t_hash *elem);
 void				ft_hashdel(t_hash *hash, void (*del)(void *));
 int					ft_hashadd(t_htable *table, t_hash *entry);
 t_hash				*ft_hashget(t_htable *table, char *key);
+void				*ft_hashget_data(t_htable *table, char *key);
 int					ft_hash(t_htable *table, char *key);
+void				ft_hashpush_data(t_htable *t, char *k, void *d, size_t s);
 
 /*
 ** BINARY FUNCTIONS
