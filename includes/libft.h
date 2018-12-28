@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/24 01:42:02 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/28 17:18:44 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,7 @@ int					ft_isspace(int c);
 int					ft_issign(int c);
 int					ft_char_count(char *s, char find);
 char				*ft_strappend(char *dst, char *append);
+char				*ft_strappendn(char *dst, size_t ac, ...);
 char				*ft_strnappend(char *dst, char *append, size_t n);
 char				*ft_itoa_base(int nbr, char *base);
 int					ft_strcinsert(char *str, char ins, size_t pos);
