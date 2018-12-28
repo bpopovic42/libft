@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 20:42:42 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/03 20:17:35 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/28 18:38:29 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int			get_next_line(const int fd, char **line)
 		buff[ret] = '\0';
 		rest = ft_strappend(rest, buff);
 	}
-	*line = (i >= 0) ? ft_strsub(rest, 0, (size_t)i) : ft_strdup(rest);
+	if (rest[0])
+		*line = ft_strsub(rest, 0, i >= 0 ? (size_t)i : ft_strlen(rest));
 	if (i++ >= 0)
 		ft_dictadd(&list, fd, rest + i, ft_strlen(rest + i) + 1);
 	ret = (rest[0]) ? 1 : ret;
