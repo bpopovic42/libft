@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/28 17:18:44 by bopopovi         ###   ########.fr       */
+/*   Updated: 2018/12/30 16:46:36 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ void				ft_dictpush(t_dict **list, t_dict *elem);
 */
 
 t_htable			*ft_hash_newtable(size_t table_size);
-void				ft_hash_freetable(t_hash **t, size_t s, void (*d)(void *));
+void				ft_hash_freetable(t_htable **t, void (*d)(void *));
 t_hash				*ft_hashnew(char *key, void *data, size_t data_size);
 t_hash				*ft_hashpop(t_htable *table, char *key);
 void				ft_hashpush(t_htable *table, t_hash *elem);
