@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2018/12/28 17:18:09 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/02/18 19:03:31 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,7 +121,7 @@ PTF_FILES	=	$(addprefix $(PTFDIR)/, \
 
 VEC_FILES	=	$(addprefix $(VECDIR)/, \
 			ft_vector_init.c ft_vector_resize.c ft_vector_free.c \
-			ft_vector_append.c ft_vector_get.c)
+			ft_vector_append.c ft_vector_get.c ft_vector_iter.c)
 
 SRCS		=	$(IO_FILES) $(LST_FILES) $(MEM_FILES) $(STR_FILES) \
 				$(DICT_FILES) $(HASH_FILES) $(BIN_FILES) $(PTF_FILES) \
