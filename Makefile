@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/02/18 19:03:31 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/02/18 20:07:37 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ IO_FILES	=	$(addprefix $(IODIR)/, \
 LST_FILES	=	$(addprefix $(LSTDIR)/, \
 			ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 			ft_lstiter.c ft_lstmap.c ft_lstpush.c ft_dlstnew.c ft_dlstdel.c \
-			ft_dlstdelone.c ft_dlstpop.c ft_dlstpush.c ft_dlstadd.c)
+			ft_dlstdelone.c ft_dlstpop.c ft_dlstpush.c ft_dlstadd.c \
+			ft_dlstdup.c)
 
 # **************************************************************************** #
 # Memory :

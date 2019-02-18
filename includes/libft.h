@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/02/18 19:03:43 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/02/18 20:27:07 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ t_dlist				*ft_dlstpop(t_dlist *elem);
 void				ft_dlstpush(t_dlist **head, t_dlist *elem);
 void				ft_dlstadd(t_dlist **alst, t_dlist *elem);
 void				ft_dlstinsert(t_dlist **alst, t_dlist *elem);
+t_dlist				*ft_dlstdup(t_dlist **alst);
 
 /*
 ** MEMORY FUNCTIONS
