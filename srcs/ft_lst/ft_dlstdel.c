@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 14:30:45 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/21 21:03:29 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/02/19 17:09:45 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void			ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t))
 		ft_dlstdelone(&head, del);
 		head = ptr;
 	}
+	*alst = NULL;
 }
