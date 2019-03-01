@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/02/28 18:13:31 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/01 15:39:01 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ t_dlist				*ft_dlstdup(t_dlist **alst);
 void				ft_dlstiter(t_dlist *lst, void (*f)(t_dlist *elem));
 t_list				*ft_lstdup(t_list **alst);
 int					ft_lstadd_data(t_list **alst, void *data, size_t data_size);
+int					ft_lstpush_data(t_list **alist, void *data, size_t data_size);
 
 /*
 ** MEMORY FUNCTIONS
@@ -256,7 +257,7 @@ int64_t				ft_toggle_bit(int64_t set, int bit);
 ** VECTOR FUNCTIONS
 */
 
-void				ft_vector_free(t_vect *v, void (*del)(void **));
+void				ft_vector_free(t_vect *v, void (*del)(void **, size_t));
 t_vect				*ft_vector_init(size_t data_size, size_t capacity);
 void				ft_vector_append(t_vect *v, void *value);
 void				*ft_vector_get(t_vect *v, size_t index);
