@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 03:13:38 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/11/20 05:18:56 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:01:35 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	*ft_realloc(void *ptr, size_t size, size_t new_size)
 
 	if (!(new_ptr = ft_memalloc(new_size)))
 		return (NULL);
+	ft_bzero(new_ptr, new_size);
 	if (ptr)
 	{
 		ft_memcpy(new_ptr, ptr, size);
