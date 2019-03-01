@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/01 15:39:01 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:07:16 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,7 +261,7 @@ void				ft_vector_free(t_vect *v, void (*del)(void **, size_t));
 t_vect				*ft_vector_init(size_t data_size, size_t capacity);
 void				ft_vector_append(t_vect *v, void *value);
 void				*ft_vector_get(t_vect *v, size_t index);
-void				ft_vector_resize(t_vect *v);
+int					ft_vector_resize(t_vect *v)
 void				ft_vector_iter(t_vect *v, void (*f)(void *data));
 
 #endif
