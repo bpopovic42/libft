@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:11:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/02/28 18:20:46 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:18:57 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ int		ft_lstadd_data(t_list **alst, void *data, size_t data_size)
 		return (-1);
 	ft_lstadd(alst, new);
 	return (0);
-	return (-1);
 }
