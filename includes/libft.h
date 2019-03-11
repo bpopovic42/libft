@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/04 15:07:43 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:05:57 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,7 +244,7 @@ int					ft_hashadd(t_htable *table, t_hash *entry);
 t_hash				*ft_hashget(t_htable *table, char *key);
 void				*ft_hashget_data(t_htable *table, char *key);
 int					ft_hash(t_htable *table, char *key);
-void				ft_hashpush_data(t_htable *t, char *k, void *d, size_t s);
+int					ft_hashpush_data(t_htable *t, char *k, void *d, size_t s);
 
 /*
 ** BINARY FUNCTIONS
