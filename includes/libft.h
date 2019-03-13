@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/11 19:05:57 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/13 20:52:19 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,19 @@ typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
 typedef long double		t_ldbl;
 
+typedef struct		s_node
+{
+	void			*data;
+	size_t			data_size;
+	struct s_node	*next;
+	struct s_node	*prev;
+}					t_node;
+
 typedef struct		s_list
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
+	t_node			*head;
+	t_node			*tail;
+	size_t			size;
 }					t_list;
 
 typedef struct		s_dlist
@@ -117,13 +125,12 @@ void				ft_perror(const char *error);
 ** LIST FUNCTIONS
 */
 
-t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstdel(t_list *alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list *alst, t_node *new);
+void				ft_lstiter(t_list *lst, void (*f)(t_node *node));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstpush(t_list **alist, t_list *list);
+void				ft_lstpush_node(t_list *alst, t_node *node);
 t_dlist				*ft_dlstnew(void const *content, size_t content_size);
 void				ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t));
 void				ft_dlstdelone(t_dlist **alst, void (*del)(void *, size_t));
@@ -131,11 +138,13 @@ t_dlist				*ft_dlstpop(t_dlist *elem);
 void				ft_dlstpush(t_dlist **head, t_dlist *elem);
 void				ft_dlstadd(t_dlist **alst, t_dlist *elem);
 void				ft_dlstinsert(t_dlist **alst, t_dlist *elem);
-t_dlist				*ft_dlstdup(t_dlist **alst);
 void				ft_dlstiter(t_dlist *lst, void (*f)(t_dlist *elem));
-t_list				*ft_lstdup(t_list **alst);
-int					ft_lstadd_data(t_list **alst, void *data, size_t data_size);
-int					ft_lstpush_data(t_list **alist, void *data, size_t data_size);
+int					ft_lstadd_data(t_list *alst, void *data, size_t data_size);
+int					ft_lstpush_data(t_list *alst, void *data, size_t data_size);
+void				ft_lstsort(t_list *alst, int (*cmp)(void*, void*));
+t_list				*ft_lstnew(void);
+t_node				*ft_node_new(void const *data, size_t data_size);
+void				ft_node_del(t_node **node, void (*del)(void *, size_t));
 
 /*
 ** MEMORY FUNCTIONS
