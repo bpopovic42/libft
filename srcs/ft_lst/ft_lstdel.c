@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:44:36 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/13 20:23:20 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/15 20:18:13 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,21 @@ void	ft_lstdel(t_list *alst, void (*del)(void *, size_t))
 {
 	t_node *ptr;
 
-	if (alst && alst->head && del)
+	if (alst)
 	{
-		while (alst->head)
+		if (alst->head && del)
 		{
-			ptr = alst->head;
-			alst->head = alst->head->next;
-			ft_node_del(&ptr, del);
+			while (alst->head)
+			{
+				ptr = alst->head;
+				alst->head = alst->head->next;
+				ft_node_del(&ptr, del);
+			}
 		}
+		alst->head = NULL;
+		alst->tail = NULL;
+		alst->size = 0;
+		free(alst);
+		alst = NULL;
 	}
-	alst->head = NULL;
-	alst->tail = NULL;
-	alst->size = 0;
-	free(alst);
-	alst = NULL;
 }
