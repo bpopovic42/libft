@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 18:40:39 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/13 21:01:52 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/19 19:41:03 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_node	*get_pivot(t_node *head, t_node *tail, t_list *new,
 	end = pivot;
 	while (current != pivot)
 	{
-		if (cmp(current, pivot))
+		if (cmp(current->data, pivot->data))
 		{
 			if (new->head == NULL)
 				new->head = current;
