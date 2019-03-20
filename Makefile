@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/03/18 19:24:20 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/03/20 20:21:49 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,7 +131,7 @@ VEC_FILES	=	$(addprefix $(VECDIR)/, \
 # Arrays :
 
 ARR_FILES	=	$(addprefix $(ARRDIR)/, \
-			ft_new_array.c)
+			ft_array_new.c)
 
 SRCS		=	$(IO_FILES) $(LST_FILES) $(MEM_FILES) $(STR_FILES) \
 				$(DICT_FILES) $(HASH_FILES) $(BIN_FILES) $(PTF_FILES) \

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_array.c                                     :+:      :+:    :+:   */
+/*   ft_array_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 19:15:10 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/19 14:29:34 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/20 20:20:44 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	**ft_new_array(size_t x, size_t y, size_t data_size)
+void	**ft_array_new(size_t x, size_t y, size_t data_size)
 {
 	void	**new_array;
 	size_t	i;
