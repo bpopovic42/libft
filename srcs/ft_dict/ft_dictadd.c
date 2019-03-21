@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/01 17:59:17 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/03 20:16:09 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/21 20:57:02 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@
 
 int		ft_dictadd(t_dict **list, int key, void *data, size_t size)
 {
+	t_dict *new;
+
+	new = NULL;
 	if (list)
 	{
+		if (!(new = ft_dictnew(key, data, size)))
+			return (-1);
 		ft_dictpush(list, ft_dictnew(key, data, size));
 		return (1);
 	}
