@@ -6,11 +6,17 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 23:52:12 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/12/03 20:16:14 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/22 17:04:26 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	erase_data(void **data, size_t data_size)
+{
+	(*data) = NULL;
+	data_size = 0;
+}
 
 void	*ft_dictget(t_dict **list, int key)
 {
@@ -23,9 +29,8 @@ void	*ft_dictget(t_dict **list, int key)
 		ptr = ft_dictpop(list, key);
 		if (ptr)
 		{
-			if (!(data = ft_memdup(ptr->data, ptr->data_size)))
-				return (NULL);
-			ft_dictdel(&ptr);
+			data = ptr->data;
+			ft_dictdel(&ptr, &erase_data);
 			return (data);
 		}
 	}

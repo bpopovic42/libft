@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/20 20:21:15 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/03/22 16:49:00 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,7 @@ int					ft_is_valid_int(const char *nbr);
 */
 
 int					ft_dictadd(t_dict **list, int key, void *data, size_t size);
-void				ft_dictdel(t_dict **elem);
+void				ft_dictdel(t_dict **elem, void (*del)(void **, size_t));
 void				*ft_dictget(t_dict **list, int key);
 t_dict				*ft_dictnew(int key, void const *data, size_t data_size);
 t_dict				*ft_dictpop(t_dict **list, int key);
