@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/03 06:26:14 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/03 06:42:57 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,13 +261,6 @@ t_hash				*ft_hashget(t_htable *table, char *key);
 void				*ft_hashget_data(t_htable *table, char *key);
 int					ft_hash(t_htable *table, char *key);
 int					ft_hashpush_data(t_htable *t, char *k, void *d, size_t s);
-
-/*
-** BINARY FUNCTIONS
-*/
-
-int					ft_is_bit_set(int64_t set, int bit);
-int64_t				ft_toggle_bit(int64_t set, int bit);
 
 /*
 ** VECTOR FUNCTIONS

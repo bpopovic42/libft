@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/04/03 06:27:52 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/04/03 06:43:16 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ STRDIR		=	ft_str
 DICTDIR		=	ft_dict
 
 HASHDIR		=	ft_hash
-
-BINDIR		=	ft_bin
 
 PTFDIR		=	ft_printf
 
@@ -105,12 +103,6 @@ HASH_FILES	=	$(addprefix $(HASHDIR)/, \
 			ft_hashnew.c ft_hashpop.c ft_hashpush.c ft_hashdel.c \
 			ft_hashget.c ft_hashadd.c ft_hash.c ft_hash_newtable.c \
 			ft_hash_freetable.c ft_hashget_data.c ft_hashpush_data.c)
-
-# **************************************************************************** #
-# Binary :
-
-BIN_FILES	=	$(addprefix $(BINDIR)/, \
-			ft_toggle_bit.c ft_is_bit_set.c)
 
 # **************************************************************************** #
 # Printf :
