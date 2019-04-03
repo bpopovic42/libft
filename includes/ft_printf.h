@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 15:28:14 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/27 15:55:44 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/03 06:48:40 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define FT_PRINTF_MAG "\e[35m"
 # define FT_PRINTF_CYA "\e[36m"
 
+typedef long double		t_ldbl;
+
 typedef struct		s_fmt
 {
 	const char		*format;
@@ -60,6 +62,28 @@ typedef struct		s_ptf
 	char			flags[11];
 	char			*base;
 }					t_ptf;
+
+typedef union		u_udbl
+{
+	double			val;
+	struct
+	{
+		size_t		mant: 52;
+		t_uint		expn: 11;
+		t_uint		sign: 1;
+	}				bits;
+}					t_udbl;
+
+typedef union		u_uldbl
+{
+	long double		val;
+	struct
+	{
+		size_t		mant: 52;
+		t_uint		expn: 11;
+		t_uint		sign: 1;
+	}				bits;
+}					t_uldbl;
 
 /*
 ** FT_PRINTF

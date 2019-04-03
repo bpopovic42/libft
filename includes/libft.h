@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/03 06:42:57 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/03 06:48:37 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
-typedef long double		t_ldbl;
 
 typedef struct		s_node
 {
@@ -72,28 +71,6 @@ typedef struct		s_htable
 	size_t			size;
 	struct s_hash	**table;
 }					t_htable;
-
-typedef union		u_udbl
-{
-	double			val;
-	struct
-	{
-		size_t		mant: 52;
-		t_uint		expn: 11;
-		t_uint		sign: 1;
-	}				bits;
-}					t_udbl;
-
-typedef union		u_uldbl
-{
-	long double		val;
-	struct
-	{
-		size_t		mant: 52;
-		t_uint		expn: 11;
-		t_uint		sign: 1;
-	}				bits;
-}					t_uldbl;
 
 typedef struct		s_vect
 {
