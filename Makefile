@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/03/20 20:21:49 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/04/03 06:27:52 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,9 @@ LST_FILES	=	$(addprefix $(LSTDIR)/, \
 			ft_lstiter.c ft_lstpush_node.c ft_dlstnew.c ft_dlstdel.c \
 			ft_dlstdelone.c ft_dlstpop.c ft_dlstpush.c ft_dlstadd.c \
 			ft_dlstiter.c ft_lstadd_data.c ft_lstsort.c ft_node_new.c \
-			ft_node_del.c)
+			ft_node_del.c ft_lstdup.c ft_lstget_tail.c ft_lstget_tail_data.c \
+			ft_lstpop.c ft_lstpop_data.c ft_lstpush_back.c \
+			ft_lstpush_back_data.c ft_node_dup.c)
 
 # **************************************************************************** #
 # Memory :
