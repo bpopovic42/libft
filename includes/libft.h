@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/29 14:52:26 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/29 16:45:21 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
+typedef int				t_word;
 
 typedef struct		s_node
 {
