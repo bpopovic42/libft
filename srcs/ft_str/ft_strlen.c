@@ -6,18 +6,41 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 16:05:59 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/25 00:27:21 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:16:55 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	const char *s_ptr;
+	unsigned short *u;
+	size_t i;
+	size_t j;
 
-	s_ptr = s;
-	while (*s_ptr)
-		s_ptr++;
-	return (s_ptr - s);
+	i = 0;
+	j = 0;
+	if (s && s[i])
+		u = (unsigned short*)s;
+	while (s && s[i])
+	{
+		if (!(u[j] & 0xff00))
+			return (i + 1);
+		if (!(s[i + 2]))
+			return (i + 2);
+		if (!(u[j + 1] & 0xff00))
+			return (i + 3);
+		i += 4;
+		j += 2;
+	}
+	return (i);
 }
+/*size_t		ft_strlen(const char *s)
+  {
+  const char *s_ptr;
+
+  s_ptr = s;
+  while (*s_ptr)
+  s_ptr++;
+  return (s_ptr - s);
+  }*/
