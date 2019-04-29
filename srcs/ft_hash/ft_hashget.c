@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 23:52:12 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/25 20:37:32 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:12:28 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ t_hash	*ft_hashget(t_htable *table, char *key)
 		hash_ptr = table->table[hashed_key];
 		while (hash_ptr)
 		{
-			if (!ft_strcmp(hash_ptr->key, key))
+			if (hash_ptr->next == NULL)
+				return (hash_ptr);
+			else if (!ft_strncmp(hash_ptr->key, key, ft_strlen(key)))
 				return (hash_ptr);
 			hash_ptr = hash_ptr->next;
 		}
