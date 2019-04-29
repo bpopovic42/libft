@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/03 06:48:37 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/29 14:52:26 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void				*ft_lstpop_data(t_list *list);
 t_node				*ft_lstget_tail(t_list *list);
 void				*ft_lstget_tail_data(t_list *list);
 t_list				*ft_lstdup(t_list *list);
+void				ft_lstnode_remove(t_list *list, t_node *target);
 
 /*
 ** MEMORY FUNCTIONS
