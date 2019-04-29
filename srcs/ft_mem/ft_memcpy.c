@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/14 14:23:22 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/25 00:22:18 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/04/29 16:45:31 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 ** NULL byte if you copy strings !
 ** t_word must be a power of 2 for AND modulo to work
 */
-
-typedef int t_word;
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
