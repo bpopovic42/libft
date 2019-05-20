@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 20:42:42 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/24 23:10:06 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/05/20 17:17:44 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ static int	add_file_remains_to_dict(const int fd, t_gnl *reader, t_dict **list)
 	{
 		file_remains = reader->data + (reader->newline_index + 1);
 		remains_len = ft_strlen(file_remains) + 1;
-		if (ft_dictadd(list, fd, file_remains, remains_len) < 0)
-			return (-1);
+		if (remains_len > 1)
+		{
+			if (ft_dictadd(list, fd, file_remains, remains_len) < 0)
+				return (-1);
+		}
 	}
 	return (0);
 }
