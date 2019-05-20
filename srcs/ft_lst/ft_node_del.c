@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 19:15:45 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/03 06:06:17 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/05/20 16:11:33 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_node_del(t_node **node, void (*del)(void *, size_t))
 {
-	if (node && del)
+	if (node)
 	{
 		if (del)
 			del(&((*node)->data), (*node)->data_size);
