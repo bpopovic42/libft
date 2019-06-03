@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/04/29 14:53:19 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/06/03 18:31:10 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ HASHDIR		=	ft_hash
 PTFDIR		=	ft_printf
 
 VECDIR		=	ft_vector
+
+BMPDIR		=	ft_bitmap
 
 ARRDIR		=	ft_array
 
@@ -121,8 +123,16 @@ VEC_FILES	=	$(addprefix $(VECDIR)/, \
 			ft_vector_init.c ft_vector_resize.c ft_vector_free.c \
 			ft_vector_append.c ft_vector_get.c ft_vector_iter.c)
 
+# **************************************************************************** #
+# Bitmap :
+
+BMP_FILES	=	$(addprefix $(BMPDIR)/, \
+			ft_bitmap_clear_bit.c ft_bitmap_dup.c ft_bitmap_has_bit.c \
+			ft_bitmap_new.c ft_bitmap_set_bit.c)
+
 SRCS		=	$(IO_FILES) $(LST_FILES) $(MEM_FILES) $(STR_FILES) \
-				$(DICT_FILES) $(HASH_FILES) $(PTF_FILES) $(VEC_FILES)
+				$(DICT_FILES) $(HASH_FILES) $(PTF_FILES) $(VEC_FILES) \
+				$(BMP_FILES)
 
 ############################## OBJS ############################################
 
@@ -186,7 +196,8 @@ MKODIR		=	if [ ! -d $(ODIR) ]; then \
 			/bin/mkdir -p objs/ft_dict; \
 			/bin/mkdir -p objs/ft_hash; \
 			/bin/mkdir -p objs/ft_printf; \
-			/bin/mkdir -p objs/ft_vector; fi
+			/bin/mkdir -p objs/ft_vector; \
+			/bin/mkdir -p objs/ft_bitmap; fi
 
 CMP			=	if [ ! -e .cmp ]; then \
 			echo $(BY)Compiling $(B)Libft $(X)files...$(BY); \

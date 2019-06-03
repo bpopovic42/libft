@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/29 16:45:21 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/03 18:25:35 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ typedef struct		s_vect
 	void			**data;
 	size_t			data_size;
 }					t_vect;
+
+typedef struct	s_bmap
+{
+	size_t		size;
+	int			*bits;
+}				t_bmap;
 
 /*
 ** IO FUNCTIONS
@@ -251,6 +257,16 @@ int					ft_vector_append(t_vect *v, void *value);
 void				*ft_vector_get(t_vect *v, size_t index);
 int					ft_vector_resize(t_vect *v);
 void				ft_vector_iter(t_vect *v, void (*f)(void *data));
+
+/*
+** BITMAP FUNCTIONS
+*/
+
+void				ft_bitmap_clear_bit(t_bmap *bmap, size_t bit);
+t_bmap				*ft_bitmap_dup(t_bmap *bmap);
+int					ft_bitmap_has_bit(t_bmap *bmap, size_t bit);
+t_bmap				*ft_bitmap_new(size_t binary_size);
+void				ft_bitmap_set_bit(t_bmap *bmap, size_t bit);
 
 /*
 ** ARRAY FUNCTIONS
