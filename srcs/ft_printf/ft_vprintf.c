@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 19:06:52 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/27 16:11:03 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/03 18:54:19 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static int64_t		parse_fmt(t_ptf *ptf, va_list ap)
 		if ((*fmt)[*i] == '%')
 		{
 			if (!(*fmt)[*i + 1])
-				break ;
+				break;
 			else if ((ret = treat_arg(ptf, ap)) < 1)
 				return (ret);
 		}

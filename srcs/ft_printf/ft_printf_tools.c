@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 17:11:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/27 15:40:13 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/03 18:54:10 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t		ft_printf_atoi(const char *str, int *res)
 			*res = 0;
 			while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 				i++;
-			break ;
+			break;
 		}
 		*res = (*res * 10) + (str[i++] - '0');
 	}
