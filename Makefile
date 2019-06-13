@@ -6,7 +6,7 @@
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 08:42:00 by bopopovi          #+#    #+#              #
-#*   Updated: 2019/06/03 18:31:10 by bopopovi         ###   ########.fr       *#
+#*   Updated: 2019/06/13 18:50:26 by bopopovi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,9 +142,11 @@ OBJ			=	$(addprefix $(ODIR)/, $(OBJS))
 
 ############################## INCS ############################################
 
-HEADERS		=	libft.h ft_printf.h
+LFT_INC		=	$(addprefix $(IDIR)/, libft.h)
 
-LFT			=	$(addprefix $(IDIR)/, $(HEADERS))
+PTF_INC		=	$(addprefix $(IDIR)/, ft_printf.h)
+
+HEADERS		=	$(LFT_INC) $(PTF_INC)
 
 INCS		=	$(addprefix -I,$(IDIR)/)
 
@@ -166,7 +168,7 @@ $(NAME)		:	$(OBJ)
 			@echo $(BG)[$(BLB)LIBFT $(BG)COMPILED$(BG)]$(X)
 
 
-$(ODIR)/%.o	:	$(SDIR)/%.c $(LFT)
+$(ODIR)/%.o	:	$(SDIR)/%.c $(HEADERS)
 			@$(CMP)
 			@$(MKODIR)
 			@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
