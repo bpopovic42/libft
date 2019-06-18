@@ -1,2 +1,3 @@
 Re-vamp GNL (had unprotected mallocs)
 Re-vamp dict functions (unprotected as well)
+Norm
