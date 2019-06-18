@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 16:05:59 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/29 17:16:55 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:42:19 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlen(const char *s)
 {
-	unsigned short *u;
-	size_t i;
-	size_t j;
+	unsigned short	*u;
+	size_t			i;
+	size_t			j;
 
 	i = 0;
 	j = 0;
@@ -35,12 +35,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/*size_t		ft_strlen(const char *s)
-  {
-  const char *s_ptr;
-
-  s_ptr = s;
-  while (*s_ptr)
-  s_ptr++;
-  return (s_ptr - s);
-  }*/

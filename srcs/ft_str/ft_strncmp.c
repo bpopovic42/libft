@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:49:43 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/29 17:06:08 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:41:52 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		compare_blocks(const char *p1, const char *p2, size_t block, size_t n)
 	while (i < n)
 	{
 		if (p1[i] ^ p2[i] || p1[i] == 0 || p2[i] == 0)
-			break;
+			break ;
 		i++;
 	}
 	return (int)((unsigned char)p1[i] - (unsigned char)p2[i]);
