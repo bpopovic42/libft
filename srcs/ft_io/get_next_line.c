@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 20:42:42 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/06/03 18:55:14 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:46:06 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	read_file_until_eol(const int fd, t_gnl *reader)
 				reader->status = GNL_ERROR;
 		}
 		if (reader->status < 0)
-			break;
+			break ;
 	}
 }
 
