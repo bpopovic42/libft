@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 18:44:17 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/06/03 18:54:50 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:43:31 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void			ft_printf_print_wcs(t_ptf *ptf, wchar_t *input, int n)
 		{
 			ft_printf_buff_cat(ptf, (char*)bytes, (uint64_t)len);
 			if (total_b == n)
-				break;
+				break ;
 		}
 		else
-			break;
+			break ;
 		i++;
 	}
 }
