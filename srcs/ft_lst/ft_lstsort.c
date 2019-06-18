@@ -6,13 +6,13 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 18:40:39 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/19 19:41:03 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:45:39 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_node *ft_node_get_tail(t_node *node)
+static t_node	*ft_node_get_tail(t_node *node)
 {
 	t_node *tail;
 
