@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:27:54 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/06/03 18:25:35 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:50:43 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ typedef struct		s_vect
 	size_t			data_size;
 }					t_vect;
 
-typedef struct	s_bmap
+typedef struct		s_bmap
 {
-	size_t		size;
-	int			*bits;
-}				t_bmap;
+	size_t			size;
+	int				*bits;
+}					t_bmap;
 
 /*
 ** IO FUNCTIONS

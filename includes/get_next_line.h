@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 20:45:59 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/25 00:13:37 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/06/18 21:47:49 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 # include "libft.h"
 
-
 typedef struct	s_gnl
 {
 	char		*data;
@@ -32,6 +31,6 @@ typedef struct	s_gnl
 	int			has_newline;
 }				t_gnl;
 
-int					get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 
 #endif
