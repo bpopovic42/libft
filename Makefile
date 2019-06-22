@@ -1,6 +1,5 @@
 # **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
+#                                                                              # #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+         #
@@ -146,7 +145,9 @@ LFT_INC		=	$(addprefix $(IDIR)/, libft.h)
 
 PTF_INC		=	$(addprefix $(IDIR)/, ft_printf.h)
 
-HEADERS		=	$(LFT_INC) $(PTF_INC)
+GNL_INC		=	$(addprefix $(IDIR)/, get_next_line.h)
+
+HEADERS		=	$(LFT_INC) $(PTF_INC) $(GNL_INC)
 
 INCS		=	$(addprefix -I,$(IDIR)/)
 
@@ -160,7 +161,7 @@ CFLAGS		=	$(DEBUG) -Wall -Wextra -Werror
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJ)
+$(NAME)		:	$(OBJ) $(HEADERS)
 			@ar rcs $(NAME) $(OBJ)
 			@$(CLR)
 			@echo $(UP) $(CUT) $(UP)
