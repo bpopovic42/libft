@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 18:48:52 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/09/11 14:54:49 by bopopovi         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:29:34 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	local_putnbr_octal(t_ptf *ptf, char value)
 	{
 		if (ptf->buff.pos == FT_PRINTF_BUFF_SIZE)
 		{
-			if (write(ptf->fd, ptf->buff.buff, ptf->buff.pos) < 0)
-				exit(-1);
+			if (write_wrapper(ptf, ptf->fd, ptf->buff.buff, ptf->buff.pos) < 0)
+				return (-1);
 			ptf->buff.read += ptf->buff.pos;
 			ptf->buff.pos = 0;
 		}
@@ -64,8 +64,8 @@ void		ft_printf_buff_cat_npr(t_ptf *ptf, char *inp, uint64_t siz)
 	{
 		if (ptf->buff.pos == FT_PRINTF_BUFF_SIZE)
 		{
-			if (write(ptf->fd, buff, ptf->buff.pos) < 0)
-				exit(-1);
+			if (write_wrapper(ptf, ptf->fd, buff, ptf->buff.pos) < 0)
+				return ;
 			ptf->buff.read += ptf->buff.pos;
 			ptf->buff.pos = 0;
 		}
@@ -95,8 +95,8 @@ void		ft_printf_buff_cat(t_ptf *ptf, char *inp, uint64_t siz)
 	{
 		if (ptf->buff.pos == FT_PRINTF_BUFF_SIZE)
 		{
-			if (write(ptf->fd, buff, ptf->buff.pos) < 0)
-				exit(-1);
+			if (write_wrapper(ptf, ptf->fd, buff, ptf->buff.pos) < 0)
+				return ;
 			ptf->buff.read += ptf->buff.pos;
 			ptf->buff.pos = 0;
 		}
