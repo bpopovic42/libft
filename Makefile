@@ -54,13 +54,14 @@ IO_FILES	=	$(addprefix $(IODIR)/, \
 # Lists :
 
 LST_FILES	=	$(addprefix $(LSTDIR)/, \
-			ft_lstnew.c ft_lstdel.c ft_lstadd.c \
+			ft_lstnew.c ft_lstdel.c ft_lstadd.c ft_lstmap.c \
 			ft_lstiter.c ft_lstpush_node.c ft_dlstnew.c ft_dlstdel.c \
 			ft_dlstdelone.c ft_dlstpop.c ft_dlstpush.c ft_dlstadd.c \
 			ft_dlstiter.c ft_lstadd_data.c ft_lstsort.c ft_node_new.c \
 			ft_node_del.c ft_lstdup.c ft_lstget_tail.c ft_lstget_tail_data.c \
 			ft_lstpop.c ft_lstpop_data.c ft_lstpush_back.c \
-			ft_lstpush_back_data.c ft_node_dup.c ft_lstnode_remove.c)
+			ft_lstpush_back_data.c ft_node_dup.c ft_lstnode_remove.c \
+			ft_lstinsert_after.c ft_lst_filter.c ft_lstapply.c ft_lstmutate.c)
 
 # **************************************************************************** #
 # Memory :
@@ -88,7 +89,8 @@ STR_FILES	=	$(addprefix $(STRDIR)/, \
 			ft_strnappend.c ft_strcinsert.c ft_wctomb.c ft_wcstombs.c \
 			ft_wcslen.c ft_strrev.c ft_wcsnlen.c ft_strchrn.c ft_ccat.c \
 			ft_strtoupper.c ft_strcasestr.c ft_strcasenequ.c ft_atol.c \
-			ft_count_words.c ft_is_valid_int.c ft_strappendn.c)
+			ft_count_words.c ft_is_valid_int.c ft_strappendn.c ft_strcatn.c \
+			ft_intlen.c)
 
 # **************************************************************************** #
 # Dictionary :
@@ -153,7 +155,7 @@ INCS		=	$(addprefix -I,$(IDIR)/)
 
 ############################## COMP ############################################
 
-CC			=	gcc
+CC			=	clang-9
 
 CFLAGS		=	$(DEBUG) -Wall -Wextra -Werror
 
@@ -169,9 +171,22 @@ $(NAME)		:	$(OBJ) $(HEADERS)
 			@echo $(BG)[$(BLB)LIBFT $(BG)COMPILED$(BG)]$(X)
 
 
+$(OBJ) 		: | $(ODIR)
+
+$(ODIR)		:
+			@/bin/mkdir -p $(ODIR)
+			@/bin/mkdir -p objs/ft_io
+			@/bin/mkdir -p objs/ft_lst
+			@/bin/mkdir -p objs/ft_mem
+			@/bin/mkdir -p objs/ft_str
+			@/bin/mkdir -p objs/ft_dict
+			@/bin/mkdir -p objs/ft_hash
+			@/bin/mkdir -p objs/ft_printf
+			@/bin/mkdir -p objs/ft_vector
+			@/bin/mkdir -p objs/ft_bitmap
+
 $(ODIR)/%.o	:	$(SDIR)/%.c $(HEADERS)
 			@$(CMP)
-			@$(MKODIR)
 			@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 			@$(CLR)
 			@echo -n $@
@@ -186,21 +201,11 @@ clean		:
 fclean		:	clean
 			@/bin/rm -f $(NAME)
 
-re			:	fclean all
+re			:
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 ############################## UTIL ############################################
-
-MKODIR		=	if [ ! -d $(ODIR) ]; then \
-			/bin/mkdir -p $(ODIR); \
-			/bin/mkdir -p objs/ft_io; \
-			/bin/mkdir -p objs/ft_lst; \
-			/bin/mkdir -p objs/ft_mem; \
-			/bin/mkdir -p objs/ft_str; \
-			/bin/mkdir -p objs/ft_dict; \
-			/bin/mkdir -p objs/ft_hash; \
-			/bin/mkdir -p objs/ft_printf; \
-			/bin/mkdir -p objs/ft_vector; \
-			/bin/mkdir -p objs/ft_bitmap; fi
 
 CMP			=	if [ ! -e .cmp ]; then \
 			echo $(BY)Compiling $(B)Libft $(X)files...$(BY); \

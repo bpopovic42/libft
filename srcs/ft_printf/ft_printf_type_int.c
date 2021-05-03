@@ -15,9 +15,9 @@
 static int			get_arg_unsigned(t_ptf *ptf, char *res, int64_t param)
 {
 	if (ptf->spec == 'p')
-		return (ft_printf_lltoa_base(res, ptf->base, (uint64_t)param));
+		return (ft_printf_lltoa_base(res, ptf->base, (u_int64_t)param));
 	else if (ft_strchrn(ptf->flags, 'l') == 2)
-		return (ft_printf_ulltoa_base(res, ptf->base, (uint64_t)param));
+		return (ft_printf_ulltoa_base(res, ptf->base, (u_int64_t)param));
 	else if (ft_strchr(ptf->flags, 'l'))
 		return (ft_printf_ulltoa_base(res, ptf->base, (unsigned long)param));
 	else if (ft_strchr(ptf->flags, 'j'))

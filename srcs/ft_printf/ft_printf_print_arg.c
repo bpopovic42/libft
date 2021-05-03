@@ -34,7 +34,7 @@ void			ft_printf_print_wcs(t_ptf *ptf, wchar_t *input, int n)
 		total_b += len;
 		if (total_b <= n)
 		{
-			ft_printf_buff_cat(ptf, (char*)bytes, (uint64_t)len);
+			ft_printf_buff_cat(ptf, (char*)bytes, (u_int64_t)len);
 			if (total_b == n)
 				break ;
 		}
@@ -60,21 +60,21 @@ void			ft_printf_print(t_ptf *ptf, char *prfx, char *input, int n)
 	if (ft_strchr(ptf->flags, '0'))
 		width = ptf->precision < 0 || ft_strchr("rsScC", ptf->spec) ? "0" : " ";
 	if (ft_strlen(prfx) && *width == '0')
-		ft_printf_buff_cat(ptf, prfx, (uint64_t)ft_strlen(prfx));
+		ft_printf_buff_cat(ptf, prfx, (u_int64_t)ft_strlen(prfx));
 	if (!ft_strchr(ptf->flags, '-') && ptf->width > 0)
-		ft_printf_buff_catn(ptf, width, (uint64_t)ptf->width);
+		ft_printf_buff_catn(ptf, width, (u_int64_t)ptf->width);
 	if (ft_strlen(prfx) && *width == ' ')
-		ft_printf_buff_cat(ptf, prfx, (uint64_t)ft_strlen(prfx));
+		ft_printf_buff_cat(ptf, prfx, (u_int64_t)ft_strlen(prfx));
 	if (ft_strchr("BDIOUXP", ft_toupper(ptf->spec)) && ptf->precision > 0)
-		ft_printf_buff_catn(ptf, "0", (uint64_t)ptf->precision);
+		ft_printf_buff_catn(ptf, "0", (u_int64_t)ptf->precision);
 	if (ptf->spec == 'S')
 		ft_printf_print_wcs(ptf, (wchar_t*)input, n);
 	else if (ptf->spec == 'r')
-		ft_printf_buff_cat_npr(ptf, input, (uint64_t)n);
+		ft_printf_buff_cat_npr(ptf, input, (u_int64_t)n);
 	else if (ptf->spec != 'S')
-		ft_printf_buff_cat(ptf, input, (uint64_t)n);
+		ft_printf_buff_cat(ptf, input, (u_int64_t)n);
 	if (ft_strchr("AEF", ft_toupper(ptf->spec)) && ptf->precision > 0)
-		ft_printf_buff_catn(ptf, "0", (uint64_t)ptf->precision);
+		ft_printf_buff_catn(ptf, "0", (u_int64_t)ptf->precision);
 	if (ft_strchr(ptf->flags, '-') && (int)ptf->width > 0)
-		ft_printf_buff_catn(ptf, " ", (uint64_t)ptf->width);
+		ft_printf_buff_catn(ptf, " ", (u_int64_t)ptf->width);
 }

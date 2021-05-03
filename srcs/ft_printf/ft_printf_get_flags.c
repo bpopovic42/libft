@@ -89,7 +89,7 @@ static void	init_flags(t_ptf *ptf)
 ** Returns index at which function stopped
 */
 
-uint64_t	ft_printf_get_flags(t_ptf *ptf, va_list ap, uint64_t i)
+u_int64_t	ft_printf_get_flags(t_ptf *ptf, va_list ap, u_int64_t i)
 {
 	const char	*fmt;
 	char		*flags;
@@ -100,9 +100,9 @@ uint64_t	ft_printf_get_flags(t_ptf *ptf, va_list ap, uint64_t i)
 	while (fmt[i] && ft_printf_is_flag(fmt[i]))
 	{
 		if (fmt[i] == '.')
-			i += (uint64_t)get_precision(ap, fmt + i + 1, &ptf->precision) + 1;
+			i += (u_int64_t)get_precision(ap, fmt + i + 1, &ptf->precision) + 1;
 		else if (ft_strchr("123456789*", fmt[i]))
-			i += (uint64_t)get_width(ap, fmt + i, &(ptf->width), flags);
+			i += (u_int64_t)get_width(ap, fmt + i, &(ptf->width), flags);
 		else if ((ft_strchrn(flags, (int)fmt[i])) < 2)
 			ft_strncat(flags, &fmt[i], 1);
 		i++;

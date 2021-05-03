@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 18:40:39 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/06/18 21:45:39 by bopopovi         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:05:46 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ static t_node	*lst_qsort(t_node *head, t_node *tail, int (*cmp)(void*, void*))
 void			ft_lstsort(t_list *alst, int (*cmp)(void*, void*))
 {
 	alst->head = lst_qsort(alst->head, alst->tail, cmp);
+	alst->tail = ft_node_get_tail(alst->head);
 }

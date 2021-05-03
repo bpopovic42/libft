@@ -29,7 +29,10 @@ t_node	*ft_node_new(void const *data, size_t data_size)
 	else
 	{
 		if (!(new->data = ft_memdup(data, data_size)))
+		{
+			free(new);
 			return (NULL);
+		}
 		new->data_size = data_size;
 	}
 	return (new);

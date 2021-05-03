@@ -72,7 +72,7 @@ int			ft_printf_lltoa_base(char *buff, char *chrst, int64_t nb)
 	t_uint				base;
 	int					i;
 	char				*ptr;
-	uint64_t			tmp;
+	u_int64_t			tmp;
 
 	i = 0;
 	ptr = buff;
@@ -80,13 +80,13 @@ int			ft_printf_lltoa_base(char *buff, char *chrst, int64_t nb)
 	if (base > 16 || base < 2 || !ptr)
 		return (-1);
 	*ptr = nb < 0 ? '-' : '+';
-	tmp = (uint64_t)(nb * (*ptr == '-' ? -1 : 1));
+	tmp = (u_int64_t)(nb * (*ptr == '-' ? -1 : 1));
 	ptr++;
 	while (tmp || i < 1)
 	{
-		ptr[i] = chrst[tmp % (uint64_t)base];
+		ptr[i] = chrst[tmp % (u_int64_t)base];
 		i++;
-		tmp /= (uint64_t)base;
+		tmp /= (u_int64_t)base;
 	}
 	ptr[i] = '\0';
 	ptr = ft_strrev(ptr);
@@ -94,12 +94,12 @@ int			ft_printf_lltoa_base(char *buff, char *chrst, int64_t nb)
 }
 
 /*
-** Converts a uint64_t to its ascii representation in a given base
+** Converts a u_int64_t to its ascii representation in a given base
 ** Base is computed from the length of its associated charset *chrst
 ** Returns the conversion's ascii string length
 */
 
-int			ft_printf_ulltoa_base(char *buff, char *chrst, uint64_t nb)
+int			ft_printf_ulltoa_base(char *buff, char *chrst, u_int64_t nb)
 {
 	t_uint	base;
 	int		i;
@@ -114,9 +114,9 @@ int			ft_printf_ulltoa_base(char *buff, char *chrst, uint64_t nb)
 		return (-1);
 	while (nb || i < 1)
 	{
-		ptr[i] = chrst[nb % (uint64_t)base];
+		ptr[i] = chrst[nb % (u_int64_t)base];
 		i++;
-		nb /= (uint64_t)base;
+		nb /= (u_int64_t)base;
 	}
 	ptr[i] = '\0';
 	ptr = ft_strrev(ptr);

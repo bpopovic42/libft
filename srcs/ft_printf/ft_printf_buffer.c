@@ -18,13 +18,13 @@
 ** Returns output's size
 */
 
-static int	local_putnbr_octal(t_ptf *ptf, char value)
+static int	local_putnbr_octal(t_ptf *ptf, unsigned char value)
 {
 	char	tmp[4];
 	int		i;
 
 	i = 0;
-	while (value)
+	while (i < 3)
 	{
 		tmp[i] = value % 8 + '0';
 		value /= 8;
@@ -53,7 +53,7 @@ static int	local_putnbr_octal(t_ptf *ptf, char value)
 ** Then its octal representation is used
 */
 
-void		ft_printf_buff_cat_npr(t_ptf *ptf, char *inp, uint64_t siz)
+void		ft_printf_buff_cat_npr(t_ptf *ptf, char *inp, u_int64_t siz)
 {
 	int		i;
 	char	*buff;
@@ -84,7 +84,7 @@ void		ft_printf_buff_cat_npr(t_ptf *ptf, char *inp, uint64_t siz)
 ** If buffer reach its max size, buffer is dumped
 */
 
-void		ft_printf_buff_cat(t_ptf *ptf, char *inp, uint64_t siz)
+void		ft_printf_buff_cat(t_ptf *ptf, char *inp, u_int64_t siz)
 {
 	int		i;
 	char	*buff;
@@ -111,13 +111,13 @@ void		ft_printf_buff_cat(t_ptf *ptf, char *inp, uint64_t siz)
 ** Concatenates input n times in printf's buffer
 */
 
-void		ft_printf_buff_catn(t_ptf *ptf, char *inp, uint64_t n)
+void		ft_printf_buff_catn(t_ptf *ptf, char *inp, u_int64_t n)
 {
 	int len;
 
 	len = (int)ft_strlen(inp);
 	while (n--)
-		ft_printf_buff_cat(ptf, inp, (uint64_t)len);
+		ft_printf_buff_cat(ptf, inp, (u_int64_t)len);
 }
 
 /*

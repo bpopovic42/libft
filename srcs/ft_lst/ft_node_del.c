@@ -18,7 +18,7 @@ void	ft_node_del(t_node **node, void (*del)(void *, size_t))
 	if (node)
 	{
 		if (del)
-			del(&((*node)->data), (*node)->data_size);
+			del(((*node)->data), (*node)->data_size);
 		free(*node);
 		*node = NULL;
 	}

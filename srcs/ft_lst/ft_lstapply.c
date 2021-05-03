@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bits.c                                    :+:      :+:    :+:   */
+/*   ft_lstapply.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/26 17:18:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:16 by bopopovi         ###   ########.fr       */
+/*   Created: 2021/05/03 18:07:27 by bopopovi          #+#    #+#             */
+/*   Updated: 2021/05/03 18:07:38 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_print_bits(u_int64_t val, size_t type)
-{
-	int size;
+/*
+** Applies function 'apply' to all list nodes
+** Returns EXIT_FAILURE if 'apply' does not return successfully
+** Returns EXIT_SUCCESS otherwise
+*/
 
-	size = (int)((type * 8) - 1);
-	while (size >= 0)
+int	ft_lstapply(t_list *lst, int (apply)(t_node *node))
+{
+	t_node *node_ptr;
+
+	node_ptr = lst->head;
+	while (node_ptr)
 	{
-		if ((val >> size) > 0)
-		{
-			ft_putchar('1');
-			val ^= (1 << size);
-		}
-		else
-			ft_putchar('0');
-		size--;
+		if (apply(node_ptr) != EXIT_SUCCESS)
+			return (EXIT_FAILURE);
+		node_ptr = node_ptr->next;
 	}
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 18:50:36 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/21 20:13:28 by bopopovi         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:04:45 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strappendn(char *dst, size_t ac, ...)
 				if (!(dst = ft_strappend(dst, tmp)))
 				{
 					ft_strdel(&dst);
-					return (NULL);
+					break ;
 				}
 			}
 			i++;

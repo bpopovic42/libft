@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bits.c                                    :+:      :+:    :+:   */
+/*   ft_strcatn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/26 17:18:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:16 by bopopovi         ###   ########.fr       */
+/*   Created: 2018/04/09 12:37:34 by bopopovi          #+#    #+#             */
+/*   Updated: 2021/05/03 18:04:13 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdarg.h>
 
-void		ft_print_bits(u_int64_t val, size_t type)
+char	*ft_strcatn(char *s1, size_t ac, ...)
 {
-	int size;
+	va_list	ap;
+	char	*tmp;
+	size_t	i;
 
-	size = (int)((type * 8) - 1);
-	while (size >= 0)
+	i = 0;
+	if (ac > 0)
 	{
-		if ((val >> size) > 0)
+		if (s1 == NULL)
+			return (NULL);
+		va_start(ap, ac);
+		while (i < ac)
 		{
-			ft_putchar('1');
-			val ^= (1 << size);
+			tmp = va_arg(ap, char*);
+			ft_strcat(s1, tmp);
+			i++;
 		}
-		else
-			ft_putchar('0');
-		size--;
+		va_end(ap);
 	}
+	return (s1);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bits.c                                    :+:      :+:    :+:   */
+/*   ft_lst_filter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/26 17:18:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:16 by bopopovi         ###   ########.fr       */
+/*   Created: 2021/05/03 18:06:07 by bopopovi          #+#    #+#             */
+/*   Updated: 2021/05/03 18:06:30 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_print_bits(u_int64_t val, size_t type)
+void	ft_lst_filter(t_list *list, t_list **result, int (f)(t_node *node))
 {
-	int size;
+	t_node *result_node;
+	t_node *node_ptr;
 
-	size = (int)((type * 8) - 1);
-	while (size >= 0)
+	result_node = NULL;
+	node_ptr = list->head;
+	while (node_ptr)
 	{
-		if ((val >> size) > 0)
+		if (f(node_ptr))
 		{
-			ft_putchar('1');
-			val ^= (1 << size);
+			result_node = node_ptr;
+			node_ptr = node_ptr->next;
+			ft_lstnode_remove(list, result_node);
+			ft_lstadd(*result, result_node);
 		}
 		else
-			ft_putchar('0');
-		size--;
+			node_ptr = node_ptr->next;
 	}
 }

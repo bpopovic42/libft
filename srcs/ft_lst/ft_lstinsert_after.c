@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bits.c                                    :+:      :+:    :+:   */
+/*   ft_lstinsert_after.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/26 17:18:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:16 by bopopovi         ###   ########.fr       */
+/*   Created: 2021/05/03 18:07:48 by bopopovi          #+#    #+#             */
+/*   Updated: 2021/05/03 18:08:24 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_print_bits(u_int64_t val, size_t type)
+void	ft_lstinsert_after(t_list *src, t_node *dest)
 {
-	int size;
+	t_node *src_list_tail;
 
-	size = (int)((type * 8) - 1);
-	while (size >= 0)
-	{
-		if ((val >> size) > 0)
-		{
-			ft_putchar('1');
-			val ^= (1 << size);
-		}
-		else
-			ft_putchar('0');
-		size--;
-	}
+	src_list_tail = ft_lstget_tail(src);
+	src_list_tail->next = dest->next;
+	dest->next = src->head;
 }

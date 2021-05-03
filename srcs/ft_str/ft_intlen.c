@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bits.c                                    :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/26 17:18:06 by bopopovi          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:16 by bopopovi         ###   ########.fr       */
+/*   Created: 2021/05/03 18:05:04 by bopopovi          #+#    #+#             */
+/*   Updated: 2021/05/03 18:05:21 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_print_bits(u_int64_t val, size_t type)
+size_t	ft_intlen(int nbr)
 {
-	int size;
+	size_t	int_length;
+	t_uint	tmp;
 
-	size = (int)((type * 8) - 1);
-	while (size >= 0)
+	int_length = 1;
+	tmp = nbr < 0 ? (t_uint)-nbr : (t_uint)nbr;
+	while (tmp)
 	{
-		if ((val >> size) > 0)
-		{
-			ft_putchar('1');
-			val ^= (1 << size);
-		}
-		else
-			ft_putchar('0');
-		size--;
+		tmp /= 10;
+		int_length++;
 	}
+	int_length += nbr < 0 ? 0 : -1;
+	return (int_length);
 }

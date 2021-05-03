@@ -69,7 +69,7 @@ static int			treat_arg_by_type(t_ptf *ptf, va_list ap)
 
 static int			treat_arg(t_ptf *ptf, va_list ap)
 {
-	uint64_t	i;
+	u_int64_t	i;
 	int			ret;
 
 	i = 1;
@@ -94,7 +94,7 @@ static int64_t		parse_fmt(t_ptf *ptf, va_list ap)
 {
 	int				ret;
 	const char		**fmt;
-	uint64_t		*i;
+	u_int64_t		*i;
 
 	ret = 0;
 	fmt = &(ptf->fmt.format);
@@ -111,7 +111,7 @@ static int64_t		parse_fmt(t_ptf *ptf, va_list ap)
 				return (ret);
 		}
 		else if ((*fmt)[*i] == '{')
-			*i += (uint64_t)ft_printf_color(ptf);
+			*i += (u_int64_t)ft_printf_color(ptf);
 	}
 	if (!ptf->error && **fmt)
 		ft_printf_buff_cat(ptf, (char*)*fmt, *i);
@@ -129,12 +129,9 @@ int					ft_vdprintf(int fd, const char *restrict fmt, va_list ap)
 	int				ret;
 	t_ptf			ptf;
 
-	ptf.buff.pos = 0;
-	ptf.buff.read = 0;
+	ft_bzero(&ptf, sizeof(ptf));
 	ptf.fmt.format = fmt;
-	ptf.fmt.i = 0;
 	ptf.fd = fd;
-	ptf.error = 0;
 	if ((ret = (int)parse_fmt(&ptf, ap)) < 0)
 	{
 		write_wrapper(&ptf, fd, ptf.buff.buff, ptf.buff.pos);

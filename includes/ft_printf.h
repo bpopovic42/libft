@@ -6,7 +6,7 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 15:28:14 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/04/03 06:48:40 by bopopovi         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:30:24 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdbool.h>
 # include <limits.h>
 # include <locale.h>
+# include <stdint.h>
 
 # define FT_PRINTF_BUFF_SIZE 128
 # define MAX_INT_LEN 21
@@ -41,14 +42,14 @@ typedef long double		t_ldbl;
 typedef struct		s_fmt
 {
 	const char		*format;
-	uint64_t		i;
+	u_int64_t		i;
 }					t_fmt;
 
 typedef struct		s_buff
 {
 	char			buff[FT_PRINTF_BUFF_SIZE + 1];
 	size_t			pos;
-	uint64_t		read;
+	u_int64_t		read;
 }					t_buff;
 
 typedef struct		s_ptf
@@ -61,6 +62,7 @@ typedef struct		s_ptf
 	char			spec;
 	char			flags[11];
 	char			*base;
+	int				error;
 }					t_ptf;
 
 typedef union		u_udbl
@@ -109,7 +111,7 @@ int					ft_printf_type_mod(t_ptf *ptf);
 ** FT_PRINTF_GET_FLAGS
 */
 
-uint64_t			ft_printf_get_flags(t_ptf *ptf, va_list ap, uint64_t i);
+u_int64_t			ft_printf_get_flags(t_ptf *ptf, va_list ap, u_int64_t i);
 
 /*
 ** FT_PRINTF_PRINT_ARG
@@ -122,9 +124,10 @@ void				ft_printf_print_wcs(t_ptf *ptf, wchar_t *input, int n);
 ** FT_PRINTF_BUFFER
 */
 
-void				ft_printf_buff_cat(t_ptf *ptf, char *inp, uint64_t siz);
-void				ft_printf_buff_catn(t_ptf *ptf, char *inp, uint64_t n);
-void				ft_printf_buff_cat_npr(t_ptf *ptf, char *inp, uint64_t siz);
+void				ft_printf_buff_cat(t_ptf *ptf, char *inp, u_int64_t siz);
+void				ft_printf_buff_catn(t_ptf *ptf, char *inp, u_int64_t n);
+void				ft_printf_buff_cat_npr(t_ptf *ptf, char *inp,
+						u_int64_t siz);
 void				ft_printf_dump_fmt(t_ptf *ptf);
 
 /*
@@ -135,7 +138,8 @@ int					ft_printf_is_flag(int c);
 int					ft_printf_is_spec(int c);
 size_t				ft_printf_atoi(const char *str, int *res);
 int					ft_printf_lltoa_base(char *buff, char *chrst, int64_t nb);
-int					ft_printf_ulltoa_base(char *buff, char *chrst, uint64_t nb);
+int					ft_printf_ulltoa_base(char *buff, char *chrst,
+						u_int64_t nb);
 int					ft_printf_dtoa(double val, int prec, char *buff, char spe);
 int					ft_printf_ldtoa(t_ldbl val, int prec, char *buff, char spe);
 
@@ -144,5 +148,6 @@ int					ft_printf_ldtoa(t_ldbl val, int prec, char *buff, char spe);
 */
 
 int					ft_printf_color(t_ptf *ptf);
+int					write_wrapper(t_ptf *ptf, int fd, char *buff, size_t size);
 
 #endif

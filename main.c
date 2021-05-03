@@ -6,13 +6,13 @@
 /*   By: bopopovi <bopopovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 20:34:05 by bopopovi          #+#    #+#             */
-/*   Updated: 2019/03/13 21:16:43 by bopopovi         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:10:39 by bopopovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int cmp(void *a, void *b)
+static int		cmp(void *a, void *b)
 {
 	int *int_a;
 	int *int_b;
@@ -22,17 +22,22 @@ static int cmp(void *a, void *b)
 	return (*int_a < *int_b);
 }
 
-static void print(t_node *node)
+static void		print(t_node *node)
 {
-	int *integer = (int*)node->data;
+	int *integer;
+
+	integer = (int*)node->data;
 	ft_putnbr(*integer);
 	ft_putchar(' ');
 }
 
-int main()
+int				main(void)
 {
-	int i = 0;
-	t_list *new = ft_lstnew();
+	int		i;
+	t_list	*new;
+
+	i = 0;
+	new = ft_lstnew();
 	while (i < 10)
 	{
 		ft_lstadd_data(new, &i, sizeof(i));
